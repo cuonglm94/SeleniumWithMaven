@@ -16,6 +16,10 @@ public class HomePage extends Page{
 		driverWeb.findElement(By.xpath("//h5[text()='Elements']")).click();
 		return new ElementPage(driverWeb);
 	}
+	public FormPage clickForm() {
+		driverWeb.findElement(By.xpath("//h5[text()='Forms']")).click();
+		return new FormPage(driverWeb);
+	}
 	
 
 }
