@@ -32,7 +32,7 @@ public class TestBase {
 	//room nhỏ màn hình
 	public void zoomOut() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("document.body.style.zoom = '80%'");
+		js.executeScript("document.body.style.zoom = '50%'");
 	}
 	
 	//hàm lấy giá trị attribute trả về
