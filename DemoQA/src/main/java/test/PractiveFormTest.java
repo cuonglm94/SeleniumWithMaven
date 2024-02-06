@@ -19,6 +19,8 @@ public class PractiveFormTest extends TestCase{
 		FormPage formPage = homePage.clickForm();
 		//Từ Form page click vào practive form
 		PractiveFormPage practiveFormPage= formPage.clickPractiveForm();
+		practiveFormPage.testBase.zoomOut();
+		practiveFormPage.testBase.scrollToEndPage();
 		practiveFormPage.inputPractiveForm();
 		practiveFormPage.clickSubmit();
 		

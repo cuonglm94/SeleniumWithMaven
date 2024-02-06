@@ -11,7 +11,8 @@ public class FormPage extends Page {
 	}
 	
 	public PractiveFormPage clickPractiveForm() {
-		driverWeb.findElement(By.xpath("//span[text()='Practive Form']")).click();
+		//driverWeb.findElement(By.xpath("//span[text()='Practive Form']")).click();
+		driverWeb.findElement(By.xpath("//div[@class='element-list collapse show']//li[@id='item-0']")).click();
 		return new PractiveFormPage(driverWeb);
 	}
 

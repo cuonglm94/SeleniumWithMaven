@@ -16,20 +16,20 @@ public class PractiveFormPage extends Page{
 		//Nhập LastName
 		driverWeb.findElement(By.id("lastName")).sendKeys("Cường");
 		//Nhập Email
-		driverWeb.findElement(By.id("useremail")).sendKeys("cuongmin94@gmail.com");
+		driverWeb.findElement(By.xpath("//input[@id='userEmail']")).sendKeys("cuongmin94@gmail.com");
 		//Click chọn giới tính
-		driverWeb.findElement(By.xpath("//label[@for='gender-radio-2']")).click();
+		driverWeb.findElement(By.xpath("//label[for='gender-radio-2']")).click();
 		//Nhập sdt
 		driverWeb.findElement(By.id("userNumber")).sendKeys("0353173939");
 
 		//Click DateOfBirth
-		driverWeb.findElement(By.id("dateOfBirthInput")).click();
+		//driverWeb.findElement(By.id("dateOfBirthInput")).click();
 			//click chọn năm
-		driverWeb.findElement(By.id("react-datepicker__year-select")).click();
-		driverWeb.findElement(By.xpath("//option[text()='1994']")).click();
+		//driverWeb.findElement(By.id("react-datepicker__year-select")).click();
+		//driverWeb.findElement(By.xpath("//option[text()='1994']")).click();
 			//click chọn tháng
-		driverWeb.findElement(By.id("react-datepicker__month-select")).click();
-		driverWeb.findElement(By.xpath("//option[text()='December']")).click();
+		//driverWeb.findElement(By.id("react-datepicker__month-select")).click();
+		//driverWeb.findElement(By.xpath("//option[text()='December']")).click();
 			//click chọn ngày
 		//driverWeb.findElement(By.class("react-datepicker__day react-datepicker__day--009")).click();
 
@@ -37,10 +37,10 @@ public class PractiveFormPage extends Page{
 		//driverWeb.findElement(By.class("subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3")).sendKeys("Nội dung ghi chú");
 
 		//click Hotbies
-		driverWeb.findElement(By.xpath("//label[text()='Reading']")).click();
+		//driverWeb.findElement(By.xpath("//label[text()='Reading']")).click();
 
 		//Upload ảnh
-		driverWeb.findElement(By.id("uploadPicture")).click();
+		//driverWeb.findElement(By.id("uploadPicture")).click();
 		//chọn file ảnh
 		//...
 
@@ -48,7 +48,7 @@ public class PractiveFormPage extends Page{
 		driverWeb.findElement(By.id("currentAddress")).sendKeys("Hà Nội");
 
 		//click chọn State
-		driverWeb.findElement(By.xpath("//div[text()='Select State']")).click();
+		//driverWeb.findElement(By.xpath("//div[text()='Select State']")).click();
 			//chọn nội dung trong State and City
 		//	...
 			
