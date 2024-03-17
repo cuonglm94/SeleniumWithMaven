@@ -1,8 +1,15 @@
 package common;
 
+import java.time.Duration;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import page.DemoSamplePage;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
@@ -10,7 +17,7 @@ public class TestBase {
 	
 	//Mở trình duyệt
 	public void openBrowser(String url) {
-		System.setProperty("webdriver.chrome.driver", "E:\\01Automation\\03Tools\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\chromedriver.exe");
 		 driver= new ChromeDriver();
 		//zoom nhỏ màn hình
 		//JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -19,6 +26,7 @@ public class TestBase {
 		//Gõ url
 		//driver.get("https://demoqa.com/");
 		driver.get(url);		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		//maximize màn hình
 		driver.manage().window().maximize();
 	}
@@ -27,6 +35,34 @@ public class TestBase {
 	public void scrollToEndPage() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
+	
+	/**
+	 * Kiểm tra element hiển thị rồi mới click
+	 * @param locator
+	 * @param timeBySecond
+	 */
+	public void clickToElement(By locator, int timeBySecond) {
+		WebElement e= driver.findElement(locator);
+		waitForElementDisplayed(e, timeBySecond);
+		if(e.isDisplayed()) {
+			e.click();
+		}else {
+			System.out.println("Element not found after "+ timeBySecond +"second");
+		}
+	}
+	
+	/*
+	 * Input text to textbox
+	 */
+	public void inputText(By locator, String text, int timeBySecond) {
+		WebElement e= driver.findElement(locator);
+		waitForElementDisplayed(e, timeBySecond);
+		if(e.isDisplayed()) {
+			e.sendKeys(text);
+		}else {
+			System.out.println("Element not found after "+ timeBySecond +"second");
+		}
 	}
 	
 	//room nhỏ màn hình
@@ -40,6 +76,51 @@ public class TestBase {
 		String result="";
 		result= driver.findElement(locator).getAttribute(attributeName);
 		return result;
+	}
+	
+	/**
+	 * Wait for element displayed
+	 * @param timeBySecond
+	 */
+	public void waitForElementDisplayed(WebElement element, int timeBySecond) {
+		Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+	    wait.until(d -> element.isDisplayed());
+	}
+	
+	public String getText(By locator, int timeBySecond) {
+		String result="";	
+		WebElement e= driver.findElement(locator);
+		waitForElementDisplayed(e, timeBySecond);
+		if(e.isDisplayed()) {
+			result= e.getText();
+		}else {
+			System.out.println("Element not found after "+ timeBySecond +"second");
+		}
+		return result;
+	}
+	
+	public void switchNewWindowByClick(By locator, int timeBySecond) {
+		String originalWindow = driver.getWindowHandle();
+		System.out.println("originalWindow: "+ originalWindow);
+		clickToElement(locator, timeBySecond);
+		
+		
+
+		// Loop through until we find a new window handle
+		for (String windowHandle : driver.getWindowHandles()) {
+			System.out.println("sjfb"+ windowHandle);
+		//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeBySecond));
+			if (!windowHandle.equalsIgnoreCase(originalWindow)) {
+				
+				System.out.println("driver1: "+ driver);	
+				
+				driver.switchTo().window(windowHandle);
+				System.out.println("driver2: "+ driver);	
+				String s1=driver.findElement(By.xpath("//body")).getText();
+				System.out.println("dsnfkndsfk"+s1);
+				break;
+			}
+		}
 	}
 
 }

@@ -1,10 +1,14 @@
 package page;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class WebTablePage extends Page{
 	public By lbInputSearch=By.xpath("//input[@id='searchBox']");
+	public By firstNames= By.xpath("//div[@role='rowgroup']/div/div[1]");
 
 	public WebTablePage(WebDriver dr) {
 		super(dr);
@@ -43,5 +47,23 @@ public class WebTablePage extends Page{
 		//click submit
 		driverWeb.findElement(By.id("submit")).click();
 	}
+	
+	public boolean checkSearchResult(By locator, String searchText) {
+		boolean result=true;
+		List<WebElement> elements=driverWeb.findElements(locator);
+		
+		for(WebElement e:elements) {
+			String searchResultText=e.getText();
+			
+			if((searchResultText.trim()!=null && searchResultText.trim()!="") && (!searchResultText.contains(searchText))){
+				result=false;
+			}
+		
+			
+		}
+		return result;
+	}
+	
+	
 
 }
