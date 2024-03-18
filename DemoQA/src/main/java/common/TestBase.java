@@ -122,5 +122,21 @@ public class TestBase {
 			}
 		}
 	}
+	
+	/*
+	 * getText lay gia tri text cua phan tu
+	 */
+	public String getTextByLocator(By locator) {
+		String result= driver.findElement(locator).getText();
+		return result;
+	}
+	
+	/*
+	 * clickByLocator click vao mot phan tu element
+	 */
+	
+	public void clickByLocator(By locator) {
+		driver.findElement(locator).click();
+	}
 
 }
