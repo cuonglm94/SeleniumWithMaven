@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class TextBoxPage extends Page {
+	public By txtFullName=By.id("userName");
+	public By txtCurrentAddress=By.id("currentAddress");
+	public By txtPermanentAddress=By.id("permanentAddress");
+	
 	public By lbName=By.id("name");
 	public By lbEmail=By.id("email");
 	public By lbCurrentAddress=By.xpath("//p[@id='currentAddress']");
@@ -19,10 +23,14 @@ public class TextBoxPage extends Page {
 	// Nhập input data đúng cho TC01
 	public void inputData(String userName, String userEmail, String currentAddress, String  permanentAddress) {
 		// Nhập input data
-		driverWeb.findElement(By.id("userName")).sendKeys(userName);
-		driverWeb.findElement(txtEmail).sendKeys(userEmail);
-		driverWeb.findElement(By.id("currentAddress")).sendKeys(currentAddress);
-		driverWeb.findElement(By.id("permanentAddress")).sendKeys(permanentAddress);
+		//driverWeb.findElement(txtFullName).sendKeys(userName);
+		testBase.inputText(txtFullName, userName, timeout_short);
+		testBase.inputText(txtEmail, userEmail, timeout_short);
+		testBase.inputText(txtCurrentAddress, currentAddress, timeout_short);
+		testBase.inputText(txtPermanentAddress, permanentAddress, timeout_short);
+		//driverWeb.findElement(txtEmail).sendKeys(userEmail);
+		//driverWeb.findElement(txtCurrentAddress).sendKeys(currentAddress);
+		//driverWeb.findElement(txtPermanentAddress).sendKeys(permanentAddress);
 	}
 	
 	// Nhập input data sai cho TC02

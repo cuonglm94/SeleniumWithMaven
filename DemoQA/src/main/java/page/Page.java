@@ -2,6 +2,7 @@ package page;
 
 import org.openqa.selenium.WebDriver;
 
+import common.Configuration;
 import common.TestBase;
 
 public class Page {
@@ -11,12 +12,17 @@ public class Page {
 	//Kế thừa Has-A đến Class TestBase
 	public TestBase testBase= new TestBase();
 	
+	public Configuration config = new Configuration(System.getProperty("user.dir")+"\\src\\main\\resources\\"+"Configuration.properties");
+	public int timeout_short = Integer.parseInt(config.getConfigValueByKey("timeout_short"));
+	
 	//Khởi tạo hàm constructor
 	public Page(WebDriver dr) {
 		//super();
 		testBase.driver = dr;
 		this.driverWeb = testBase.driver;
 	}
+	
+	
 	
 
 }
