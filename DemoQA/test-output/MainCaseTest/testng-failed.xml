@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [MainCaseTest]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="SampleTestNG(failed)">
+    <groups>
+      <run>
+        <include name="main case"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="test.TextBoxTest">
+        <methods>
+          <include name="SubmitSuccessfully"/>
+        </methods>
+      </class> <!-- test.TextBoxTest -->
+      <class name="test.CheckBoxTest">
+        <methods>
+          <include name="verifyCheckBoxCorrectly"/>
+        </methods>
+      </class> <!-- test.CheckBoxTest -->
+    </classes>
+  </test> <!-- SampleTestNG(failed) -->
+</suite> <!-- Failed suite [MainCaseTest] -->

@@ -10,7 +10,7 @@ import page.ElementPage;
 import page.HomePage;
 
 public class CheckBoxTest extends TestCase{
-	@Test
+	@Test(groups="main case")
 	// TC01
 	public void verifyCheckBoxCorrectly() {
 		HomePage homePage = new HomePage(testBase.driver);

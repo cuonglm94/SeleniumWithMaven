@@ -13,7 +13,7 @@ import page.TextBoxPage;
 //All testcase of Textbox Page
 public class TextBoxTest extends TestCase {
 
-	@Test
+	@Test(groups="main case")
 	// TC01
 	public void SubmitSuccessfully() {
 		// openBrowser();
