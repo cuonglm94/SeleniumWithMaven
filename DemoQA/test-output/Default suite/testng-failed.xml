@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.ModalDialogsTest">
+      <class name="test.CheckBoxTest">
         <methods>
           <include name="openBrowser"/>
-          <include name="verifyDisplayModal1"/>
+          <include name="verifyCheckBoxCorrectly"/>
         </methods>
-      </class> <!-- test.ModalDialogsTest -->
+      </class> <!-- test.CheckBoxTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
